@@ -10,7 +10,7 @@ import UIKit
 class GitHubListViewController: BaseViewController, StoryboardSceneBased {
     static let sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var viewModel: GithubRepoListViewModel = GithubRepoListViewModel()
-    @IBOutlet private weak var repoTableView: GitRepoListTableView!
+    @IBOutlet weak var repoTableView: GitRepoListTableView!
     lazy var refreshControl: CustomRefreshControl = CustomRefreshControl()
 
     override func viewDidLoad() {

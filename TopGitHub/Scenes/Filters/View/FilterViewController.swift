@@ -24,7 +24,7 @@ class FilterViewController: UIViewController, StoryboardSceneBased {
     
     fileprivate func initialSetup() {
         viewModel.setDefaultData()
-        proceedButton.setBorder = true
+        proceedButton.isEnabled = true
         containerView.roundCorners(corners: [.topLeft, .topRight], radius: 8)
         timePeriodButton.forEach( {$0.setBorder = true})
         timePeriodButton.first?.isEnabled = true
