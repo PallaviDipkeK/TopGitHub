@@ -27,20 +27,24 @@ class GithubRepoListViewModel {
         getLanguagesList()
     }
     
-    func callListApi(completionHandler: @escaping (_ status: Bool) -> Void) {
+    func callListApi(completionHandler: @escaping (_ status: Bool, _ message: String?) -> Void) {
         let request = GithubRepoListModel.Request(lang: filterByLanguage, since: filterByTime)
         let param = CommonFunctions.sharedInstance.convertModelObjectToJson(request)
         let url = CommonFunctions.sharedInstance.getUrlByAppendingBaseUrl("")
         BaseServiceClass.sharedInstance.connectURLEncoding(url: url, httpMethod: .get, headers: nil, parameters: param) { [weak self] (response) in
-            let responseDict = response.result as! [String: Any]
-            print(responseDict)
-            let modelObj = CommonFunctions.sharedInstance.convertJsonObjectToModel(responseDict, modelType: GithubRepoListModel.Response.self)
-            if let obj = modelObj, !(obj.items?.isEmpty ?? false) {
-                self?.model = obj
-                
-                completionHandler(true)
+            print(response)
+            if response.isSuccess ?? false {
+                let responseDict = response.result as! [String: Any]
+                print(responseDict)
+                let modelObj = CommonFunctions.sharedInstance.convertJsonObjectToModel(responseDict, modelType: GithubRepoListModel.Response.self)
+                if let obj = modelObj, !(obj.items?.isEmpty ?? false) {
+                    self?.model = obj
+                    completionHandler(true, nil)
+                } else {
+                    completionHandler(false, response.error ?? "Something Went Wrong")
+                }
             } else {
-                completionHandler(false)
+                completionHandler(false, response.error ?? "Something Went Wrong")
             }
         }
     }

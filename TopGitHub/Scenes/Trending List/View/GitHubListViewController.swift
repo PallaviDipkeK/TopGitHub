@@ -26,9 +26,11 @@ class GitHubListViewController: BaseViewController, StoryboardSceneBased {
         let filterView = FilterViewController.instantiate()
         filterView.viewModel = viewModel
         filterView.filterDataChanged = { [weak self] in
-            filterView.dismiss(animated: true, completion: {
-                self?.getReposApiCall()
-            })
+            DispatchQueue.main.async {
+                filterView.dismiss(animated: true, completion: {
+                    self?.getReposApiCall()
+                })
+            }
         }
         filterView.modalPresentationStyle = .overFullScreen
         filterView.modalTransitionStyle = .crossDissolve
@@ -54,17 +56,38 @@ class GitHubListViewController: BaseViewController, StoryboardSceneBased {
     
     private func getReposApiCall() {
         activityIndicatorBegin()
-        viewModel.callListApi(completionHandler: { [weak self] (status) in
-            self?.handleAPiResponse(status)
+        viewModel.callListApi(completionHandler: { [weak self] (status, msg)  in
+            DispatchQueue.main.async {
+                self?.handleAPiResponse(status, msg: msg ?? "")
+            }
         })
     }
     
-    fileprivate func handleAPiResponse(_ status: Bool) {
+    fileprivate func presentAlert(_ msg: String) {
+        presentAlertWithTitle(title: "Opps!", message: msg, options: "Retry", "Cancel") { (option) in
+            print("option: \(option)")
+            switch(option) {
+            case 0:
+                if !BaseServiceClass.sharedInstance.isConnectedToInternet() {
+                    self.presentAlert("No Network Available")
+                } else {
+                    self.getReposApiCall()
+                }
+            case 1:
+                print("option two")
+                self.dismiss(animated: true, completion: nil)
+            default:
+                break
+            }
+        }
+    }
+    
+    fileprivate func handleAPiResponse(_ status: Bool, msg: String) {
         activityIndicatorEnd()
         if status {
             repoTableView.reloadData()
         } else {
-            showToast(message: "Something went wrong.")
+            presentAlert(msg)
         }
     }
 }

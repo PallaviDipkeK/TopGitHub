@@ -42,13 +42,13 @@ extension GitRepoListTableView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4 //viewModel.model?.items?.count ?? 0
+        return viewModel.model?.items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as GitRepoListTableViewCell
         let data = viewModel.model?.items?[indexPath.row]
-//        cell.configureCell(data: data)
+        cell.configureCell(data: data)
         return cell
     }
     

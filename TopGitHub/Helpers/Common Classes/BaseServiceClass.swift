@@ -35,7 +35,7 @@ class BaseServiceClass: NSObject {
     func connect(url: String, httpMethod: HTTPMethod, headers: HTTPHeaders?, parameters: [String: Any?]?, apiResponse: @escaping(ResponseHandler)) {
         
         let validUrlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        if reachabilityManager!.isReachable {
+        if isConnectedToInternet() {
             AF.request(validUrlString!, method: httpMethod, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                 switch response.result {
                 case .success(let value):
@@ -55,13 +55,15 @@ class BaseServiceClass: NSObject {
                     print(error)
                 }
             }
+        } else {
+            apiResponse(ApiResponse(error: "No Network Available", result: nil, isSuccess: false))
         }
     }
 
     func connectURLEncoding(url: String, httpMethod: HTTPMethod, headers: HTTPHeaders?, parameters: [String: Any]?, apiResponse: @escaping(ResponseHandler)) {
         
         let validUrlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        if reachabilityManager!.isReachable {
+        if isConnectedToInternet() {
             AF.request(validUrlString!, method: httpMethod, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
                 switch response.result {
                 case .success(let value):
@@ -81,6 +83,8 @@ class BaseServiceClass: NSObject {
                     print(error)
                 }
             }
+        } else {
+            apiResponse(ApiResponse(error: "No Network Available", result: nil, isSuccess: false))
         }
     }
     /**
@@ -90,13 +94,15 @@ class BaseServiceClass: NSObject {
     func bodyFromResponse(url: String, httpMethod: HTTPMethod, headers: HTTPHeaders?, parameters: [String: Any]?, apiResponse: @escaping(ResponseHandler)) {
         
         let validUrlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        if reachabilityManager!.isReachable {
+        if isConnectedToInternet() {
             AF.request(validUrlString!, method: httpMethod, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
                 if let data = response.data {
                     let json = String(data: data, encoding: String.Encoding.utf8)
                     apiResponse(ApiResponse(error: nil, result: json, isSuccess: true))
                 }
             }
+        } else {
+            apiResponse(ApiResponse(error: "No Network Available", result: nil, isSuccess: false))
         }
     }
     
