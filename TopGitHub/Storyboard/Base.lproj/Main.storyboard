@@ -166,12 +166,22 @@
                                     <constraint firstItem="6Xr-xT-zYZ" firstAttribute="top" secondItem="1C0-TN-fim" secondAttribute="bottom" constant="4" id="lr8-lp-5zJ"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWJ-4I-aIe">
+                                <rect key="frame" x="0.0" y="44" width="414" height="566"/>
+                                <connections>
+                                    <action selector="dismissView:" destination="QRx-U1-Krf" eventType="touchUpInside" id="XVh-JI-LIb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BPr-mb-1YP"/>
                         <color key="backgroundColor" white="1" alpha="0.54189590669014087" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="BPr-mb-1YP" firstAttribute="trailing" secondItem="tZm-xV-EeQ" secondAttribute="trailing" id="0F9-2M-PaJ"/>
+                            <constraint firstItem="BPr-mb-1YP" firstAttribute="trailing" secondItem="pWJ-4I-aIe" secondAttribute="trailing" id="3Rt-G7-zDL"/>
+                            <constraint firstItem="tZm-xV-EeQ" firstAttribute="top" secondItem="pWJ-4I-aIe" secondAttribute="bottom" id="9cN-Hk-n0r"/>
+                            <constraint firstItem="pWJ-4I-aIe" firstAttribute="leading" secondItem="BPr-mb-1YP" secondAttribute="leading" id="J1O-qR-qck"/>
                             <constraint firstItem="tZm-xV-EeQ" firstAttribute="leading" secondItem="BPr-mb-1YP" secondAttribute="leading" id="S9P-aK-Xci"/>
+                            <constraint firstItem="pWJ-4I-aIe" firstAttribute="top" secondItem="BPr-mb-1YP" secondAttribute="top" id="gh2-WY-9Ym"/>
                             <constraint firstItem="BPr-mb-1YP" firstAttribute="bottom" secondItem="tZm-xV-EeQ" secondAttribute="bottom" id="qx5-RC-v2h"/>
                         </constraints>
                     </view>
