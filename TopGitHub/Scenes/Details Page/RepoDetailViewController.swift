@@ -18,14 +18,15 @@ class RepoDetailViewController: BaseViewController, StoryboardSceneBased {
     @IBOutlet private weak var repoLinkLabel: UILabel!
     @IBOutlet private weak var repoDescLabel: UILabel!
     static let sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
-
+    var link: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpNavigationItem(title: "Details", subtitle: nil, left: .back, primaryRight: .filter)
+        setUpNavigationItem(title: "Details", subtitle: nil, left: .back, primaryRight: .share)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        setupData(data: nil)
+    override func didTapRightBarbutton(_ buttonType: NavigationBarButtonType?, sender: Any) {
+        shareLink(link)
     }
     
     func setupData(data: GithubRepoListModel.Item?) {

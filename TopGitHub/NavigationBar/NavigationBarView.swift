@@ -116,6 +116,7 @@ class NavigationBarView: UIView {
 enum NavigationBarButtonType: Int {
     case back
     case filter
+    case share
     
     public var iconName: String? {
         switch self {
@@ -123,6 +124,8 @@ enum NavigationBarButtonType: Int {
             return "back"
         case .filter:
             return "filter"
+        case .share:
+            return "share"
         }
     }
 }

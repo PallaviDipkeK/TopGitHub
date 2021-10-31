@@ -61,11 +61,13 @@ class GitHubListViewController: BaseViewController, StoryboardSceneBased {
     
     func didSelectRow(data: GithubRepoListModel.Item?) {
         let detailVC = RepoDetailViewController.instantiate()
+        detailVC.link = data?.repoLink ?? "https://trendings.herokuapp.com/repo"
+        detailVC.setupData(data: data)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     private func getReposApiCall() {
-//        activityIndicatorBegin()
+        activityIndicatorBegin()
         viewModel.callListApi(completionHandler: { [weak self] (status, msg)  in
             DispatchQueue.main.async {
                 self?.handleAPiResponse(status, msg: msg ?? "")

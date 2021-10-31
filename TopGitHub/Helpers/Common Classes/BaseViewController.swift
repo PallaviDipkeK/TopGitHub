@@ -138,4 +138,22 @@ class BaseViewController: UIViewController, NavigationBarViewProtocol {
         }
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    // MARK: - share Link functions
+    func shareLink(_ urlString: String?) {
+        if let url = urlString, let urlS = URL(string: url) {
+            let secondActivityItem : URL = urlS
+            let activityViewController : UIActivityViewController = UIActivityViewController(
+                activityItems: [secondActivityItem], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = view
+            activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.down
+            activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
+            activityViewController.activityItemsConfiguration = [
+                UIActivity.ActivityType.message
+            ] as? UIActivityItemsConfigurationReading
+            
+            activityViewController.isModalInPresentation = true
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+    }
 }
