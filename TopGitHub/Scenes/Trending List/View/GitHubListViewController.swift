@@ -11,7 +11,8 @@ class GitHubListViewController: BaseViewController, StoryboardSceneBased {
     static let sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var viewModel: GithubRepoListViewModel = GithubRepoListViewModel()
     @IBOutlet private weak var repoTableView: GitRepoListTableView!
-    
+    lazy var refreshControl: CustomRefreshControl = CustomRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -20,6 +21,14 @@ class GitHubListViewController: BaseViewController, StoryboardSceneBased {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+    }
+    
+    // MARK: - Refresh Controls
+    private func createRefreshControl() {
+        refreshControl.createCustomControl { [weak self] in
+            self?.viewModel.model = nil
+            self?.getReposApiCall()
+        }
     }
     
     override func didTapRightBarbutton(_ buttonType: NavigationBarButtonType?, sender: Any) {
@@ -39,6 +48,7 @@ class GitHubListViewController: BaseViewController, StoryboardSceneBased {
     
     fileprivate func initialSetup() {
         setUpNavigationItem(title: "GitHub", left: nil, primaryRight: .filter)
+        repoTableView.refreshControl = refreshControl
         repoTableView.viewModel = viewModel
         viewModel.setDefaultData()
         getReposApiCall()
@@ -55,7 +65,7 @@ class GitHubListViewController: BaseViewController, StoryboardSceneBased {
     }
     
     private func getReposApiCall() {
-        activityIndicatorBegin()
+//        activityIndicatorBegin()
         viewModel.callListApi(completionHandler: { [weak self] (status, msg)  in
             DispatchQueue.main.async {
                 self?.handleAPiResponse(status, msg: msg ?? "")
@@ -83,6 +93,7 @@ class GitHubListViewController: BaseViewController, StoryboardSceneBased {
     }
     
     fileprivate func handleAPiResponse(_ status: Bool, msg: String) {
+        refreshControl.endRefreshing()
         activityIndicatorEnd()
         if status {
             repoTableView.reloadData()
