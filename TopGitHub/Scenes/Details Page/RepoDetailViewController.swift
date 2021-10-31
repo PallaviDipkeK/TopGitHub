@@ -22,12 +22,15 @@ class RepoDetailViewController: BaseViewController, StoryboardSceneBased {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationItem(title: "Details", subtitle: nil, left: .back, primaryRight: .filter)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         setupData(data: nil)
     }
     
     func setupData(data: GithubRepoListModel.Item?) {
         let d = "Hindi"
-//        repoAvatatImage.sd_setImage(with: URL.init(string: data?.avatars?.last ?? ""), completed: nil)
+        repoAvatatImage.sd_setImage(with: URL.init(string: data?.avatars?.last ?? ""), completed: nil)
         let language = String(format: "Language:- \(d)")
         let attributedLanguageString = NSMutableAttributedString(string: language)
         langLabel.attributedText = attributedLanguageString.highlightedSubstring(

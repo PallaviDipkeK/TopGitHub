@@ -29,7 +29,5 @@ class GitRepoListTableViewCell: UITableViewCell, NibReusable {
     
     @IBAction func viewMoreClicked(_ sender: Any) {
         viewMoreSelected?()
-    }
-    
-    
+    }    
 }
