@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LanguageCollectionCell" id="Nii-7z-Jut" customClass="LanguageCollectionCell" customModule="TopGitHub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="190" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JQJ-xh-TgM">
+                <rect key="frame" x="0.0" y="0.0" width="190" height="40"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Cg-GS-HcW">
+                        <rect key="frame" x="0.0" y="5" width="185" height="30"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3td-Q7-Oul" customClass="BorderButton" customModule="TopGitHub" customModuleProvider="target">
+                                <rect key="frame" x="4" y="4" width="177" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="177" id="RLj-ko-IAU"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="languageSelected:" destination="Nii-7z-Jut" eventType="touchUpInside" id="2eN-Ik-jfj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="3td-Q7-Oul" secondAttribute="bottom" constant="4" id="0eg-oD-fsK"/>
+                            <constraint firstItem="3td-Q7-Oul" firstAttribute="leading" secondItem="8Cg-GS-HcW" secondAttribute="leading" constant="4" id="FeV-7Z-BGt"/>
+                            <constraint firstAttribute="trailing" secondItem="3td-Q7-Oul" secondAttribute="trailing" constant="4" id="oXC-jZ-I5G"/>
+                            <constraint firstItem="3td-Q7-Oul" firstAttribute="top" secondItem="8Cg-GS-HcW" secondAttribute="top" constant="4" id="zIQ-UF-BxM"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="14"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.33333333333333331" alpha="0.70068601898799665" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="8Cg-GS-HcW" secondAttribute="trailing" constant="5" id="319-SM-OOC"/>
+                    <constraint firstItem="8Cg-GS-HcW" firstAttribute="top" secondItem="JQJ-xh-TgM" secondAttribute="top" constant="5" id="OjL-59-a4g"/>
+                    <constraint firstAttribute="bottom" secondItem="8Cg-GS-HcW" secondAttribute="bottom" constant="5" id="Opr-7W-dmY"/>
+                    <constraint firstItem="8Cg-GS-HcW" firstAttribute="leading" secondItem="JQJ-xh-TgM" secondAttribute="leading" id="vBL-Q9-isz"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="190" height="64"/>
+            <connections>
+                <outlet property="buttonWidth" destination="RLj-ko-IAU" id="Hop-jK-a3o"/>
+                <outlet property="languageButton" destination="3td-Q7-Oul" id="Uxu-d9-Rbf"/>
+                <outlet property="mainView" destination="8Cg-GS-HcW" id="Eyk-ix-xnv"/>
+            </connections>
+            <point key="canvasLocation" x="101.44927536231884" y="66.294642857142861"/>
+        </collectionViewCell>
+    </objects>
+    <designables>
+        <designable name="3td-Q7-Oul">
+            <size key="intrinsicContentSize" width="46" height="30"/>
+        </designable>
+    </designables>
+</document>

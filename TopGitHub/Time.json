@@ -1,0 +1,21 @@
+[
+  {
+    "time": "Yearly",
+    "isSelected": false
+  },
+  {
+    "time": "Monthly",
+    "isSelected": false
+    
+  },
+  {
+    "time": "Weekly",
+    "isSelected": false
+    
+  },
+  {
+    "time": "Daily",
+    "isSelected": false
+   
+  }
+]

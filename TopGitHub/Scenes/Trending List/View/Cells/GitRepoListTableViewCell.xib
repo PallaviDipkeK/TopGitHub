@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GitRepoListTableViewCell" rowHeight="124" id="KGk-i7-Jjw" customClass="GitRepoListTableViewCell" customModule="TopGitHub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="447" height="124"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="447" height="124"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGe-m0-due">
+                        <rect key="frame" x="16" y="8" width="415" height="108"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RsO-h0-OqR">
+                                <rect key="frame" x="0.0" y="4" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="JN6-HS-HqY"/>
+                                    <constraint firstAttribute="height" constant="50" id="Kof-nu-xs1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gki-Xm-23Z">
+                                <rect key="frame" x="66" y="4" width="349" height="19.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" verticalCompressionResistancePriority="740" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwl-1U-6yM">
+                                <rect key="frame" x="66" y="25.5" width="349" height="54.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label</string>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTt-ab-UpE">
+                                <rect key="frame" x="66" y="82" width="108" height="18"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zr6-uH-ULV">
+                                        <rect key="frame" x="0.0" y="0.0" width="74" height="18"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="10"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="2"/>
+                                        <state key="normal" title="More Info" image="info.circle.fill" catalog="system">
+                                            <color key="titleColor" red="0.96078431369999995" green="0.96862745100000003" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="viewMoreClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1Ui-we-mOX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Zr6-uH-ULV" firstAttribute="leading" secondItem="qTt-ab-UpE" secondAttribute="leading" id="CRv-Jd-RN3"/>
+                                    <constraint firstItem="Zr6-uH-ULV" firstAttribute="top" secondItem="qTt-ab-UpE" secondAttribute="top" id="Dsk-Ik-ovs"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zr6-uH-ULV" secondAttribute="bottom" id="aeI-Yo-0bD"/>
+                                    <constraint firstAttribute="height" constant="18" id="ef7-Cr-UYx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qTt-ab-UpE" firstAttribute="leading" secondItem="Jwl-1U-6yM" secondAttribute="leading" id="DCa-RI-hzv"/>
+                            <constraint firstItem="qTt-ab-UpE" firstAttribute="width" secondItem="jGe-m0-due" secondAttribute="height" id="HkG-zz-GY8"/>
+                            <constraint firstItem="RsO-h0-OqR" firstAttribute="leading" secondItem="jGe-m0-due" secondAttribute="leading" id="Nsp-5f-FlC"/>
+                            <constraint firstItem="gki-Xm-23Z" firstAttribute="leading" secondItem="RsO-h0-OqR" secondAttribute="trailing" constant="16" id="RHx-BN-6V5"/>
+                            <constraint firstAttribute="bottom" secondItem="qTt-ab-UpE" secondAttribute="bottom" constant="8" id="XJa-Na-Qq0"/>
+                            <constraint firstItem="Jwl-1U-6yM" firstAttribute="top" secondItem="gki-Xm-23Z" secondAttribute="bottom" constant="2" id="YSm-v2-UdC"/>
+                            <constraint firstItem="RsO-h0-OqR" firstAttribute="top" secondItem="jGe-m0-due" secondAttribute="top" constant="4" id="fhD-hw-Sce"/>
+                            <constraint firstItem="Jwl-1U-6yM" firstAttribute="trailing" secondItem="gki-Xm-23Z" secondAttribute="trailing" id="g2O-fU-ZSU"/>
+                            <constraint firstItem="Jwl-1U-6yM" firstAttribute="leading" secondItem="gki-Xm-23Z" secondAttribute="leading" id="qUK-mL-7ji"/>
+                            <constraint firstAttribute="trailing" secondItem="gki-Xm-23Z" secondAttribute="trailing" id="tYl-qw-QW6"/>
+                            <constraint firstItem="qTt-ab-UpE" firstAttribute="top" secondItem="Jwl-1U-6yM" secondAttribute="bottom" constant="2" id="thf-YB-tIG"/>
+                            <constraint firstItem="gki-Xm-23Z" firstAttribute="top" secondItem="jGe-m0-due" secondAttribute="top" constant="4" id="yCB-LE-gXz"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.18431372549019609" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="jGe-m0-due" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="gPd-2I-0At"/>
+                    <constraint firstAttribute="trailing" secondItem="jGe-m0-due" secondAttribute="trailing" constant="16" id="gtD-CU-uoC"/>
+                    <constraint firstAttribute="bottom" secondItem="jGe-m0-due" secondAttribute="bottom" constant="8" id="i9B-OE-6nr"/>
+                    <constraint firstItem="jGe-m0-due" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="mO5-jZ-KGC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="authorImageView" destination="RsO-h0-OqR" id="PXV-hv-78z"/>
+                <outlet property="nameLabel" destination="gki-Xm-23Z" id="E7h-3C-Wwe"/>
+                <outlet property="repoNameLabel" destination="Jwl-1U-6yM" id="ZvD-OI-72v"/>
+                <outlet property="viewMoreButton" destination="Zr6-uH-ULV" id="cPQ-u7-kGI"/>
+            </connections>
+            <point key="canvasLocation" x="229.71014492753625" y="143.30357142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
+</document>

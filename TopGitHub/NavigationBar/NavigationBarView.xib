@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationBarView" customModule="AnujApp" customModuleProvider="target">
+            <connections>
+                <outlet property="leftBarButton" destination="Rue-J0-GBZ" id="CaS-QI-ykb"/>
+                <outlet property="rightBarButton" destination="oUm-it-Ltd" id="Q4l-bm-hUg"/>
+                <outlet property="titleLabel" destination="mdT-8x-GtO" id="pSy-M7-eYR"/>
+                <outlet property="trailingToSuperViewConstraint" destination="mB8-sp-cmf" id="zrH-Lx-pcl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="aNz-cH-UQH">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rue-J0-GBZ">
+                    <rect key="frame" x="8" y="9.5" width="44" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="8wF-jY-qJz"/>
+                        <constraint firstAttribute="height" constant="44" id="nn6-LD-BAm"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                    <state key="normal" image="user_profile">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                    </state>
+                    <connections>
+                        <action selector="didTapLeftBarButton:" destination="-1" eventType="touchUpInside" id="Cm6-Fd-nkD"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AXS-vw-7PX">
+                    <rect key="frame" x="52" y="21.5" width="263" height="20.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mdT-8x-GtO">
+                            <rect key="frame" x="0.0" y="0.0" width="263" height="20.5"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YLF-CR-CXh">
+                    <rect key="frame" x="0.0" y="62.5" width="375" height="0.5"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="0.58314938576805675" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="jCv-Zl-8Td"/>
+                    </constraints>
+                </view>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUm-it-Ltd">
+                    <rect key="frame" x="323" y="9.5" width="44" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="J5y-6E-g5Y"/>
+                        <constraint firstAttribute="height" constant="44" id="a10-uC-jJk"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                    <state key="normal" image="bell"/>
+                    <connections>
+                        <action selector="didTapPrimaryRightBarButton:" destination="-1" eventType="touchUpInside" id="7vW-Tt-dgH"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Rue-J0-GBZ" firstAttribute="centerY" secondItem="aNz-cH-UQH" secondAttribute="centerY" id="2tB-MQ-kWP"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AXS-vw-7PX" secondAttribute="bottom" id="5Jl-bc-EbE"/>
+                <constraint firstItem="AXS-vw-7PX" firstAttribute="centerY" secondItem="aNz-cH-UQH" secondAttribute="centerY" id="C5g-di-QAe"/>
+                <constraint firstItem="Rue-J0-GBZ" firstAttribute="leading" secondItem="aNz-cH-UQH" secondAttribute="leading" constant="8" id="GFg-TR-Fyn"/>
+                <constraint firstAttribute="bottom" secondItem="YLF-CR-CXh" secondAttribute="bottom" id="HLF-Jl-f9C"/>
+                <constraint firstItem="YLF-CR-CXh" firstAttribute="leading" secondItem="aNz-cH-UQH" secondAttribute="leading" id="Kbv-Dc-emS"/>
+                <constraint firstAttribute="trailing" secondItem="oUm-it-Ltd" secondAttribute="trailing" constant="8" id="PBS-zf-trd"/>
+                <constraint firstItem="oUm-it-Ltd" firstAttribute="centerY" secondItem="aNz-cH-UQH" secondAttribute="centerY" id="TRj-vE-DMB"/>
+                <constraint firstAttribute="trailing" secondItem="YLF-CR-CXh" secondAttribute="trailing" id="dPu-JI-ILp"/>
+                <constraint firstItem="AXS-vw-7PX" firstAttribute="leading" secondItem="Rue-J0-GBZ" secondAttribute="trailing" id="dmZ-Cx-rwX"/>
+                <constraint firstAttribute="trailing" secondItem="AXS-vw-7PX" secondAttribute="trailing" constant="16" id="mB8-sp-cmf"/>
+                <constraint firstItem="AXS-vw-7PX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aNz-cH-UQH" secondAttribute="top" id="pYk-by-RUO"/>
+                <constraint firstItem="oUm-it-Ltd" firstAttribute="leading" secondItem="mdT-8x-GtO" secondAttribute="trailing" constant="8" id="vKE-p5-mGg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="mB8-sp-cmf"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="74.637681159420296" y="-1131.3616071428571"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bell" width="52" height="52"/>
+        <image name="user_profile" width="50" height="50"/>
+    </resources>
+</document>
