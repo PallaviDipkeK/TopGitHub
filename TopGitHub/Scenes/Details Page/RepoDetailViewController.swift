@@ -30,51 +30,50 @@ class RepoDetailViewController: BaseViewController, StoryboardSceneBased {
     }
     
     func setupData(data: GithubRepoListModel.Item?) {
-        let d = "Hindi"
         repoAvatatImage.sd_setImage(with: URL.init(string: data?.avatars?.last ?? ""), completed: nil)
-        let language = String(format: "Language:- \(d)")
+        let language = String(format: "Language:- \(data?.lang ?? "")")
         let attributedLanguageString = NSMutableAttributedString(string: language)
         langLabel.attributedText = attributedLanguageString.highlightedSubstring(
             "Language:- ",
             withFont: AppFont.semiBold.size(13.0),
             color: .white)
         
-        let fork = String(format: "Fork:- \(d)")
+        let fork = String(format: "Fork:- \(data?.forks ?? "")")
         let attributedForkString = NSMutableAttributedString(string: fork)
         forkLabel.attributedText = attributedForkString.highlightedSubstring(
             "Fork:- ",
             withFont: AppFont.semiBold.size(13.0),
             color: .white)
         
-        let totalStars = String(format: "Total Stars:- \(d)")
+        let totalStars = String(format: "Total Stars:- \(data?.stars ?? "")")
         let attributeTotalStarsString = NSMutableAttributedString(string: totalStars)
         totalStarsLabel.attributedText = attributeTotalStarsString.highlightedSubstring(
             "Total Stars:- ",
             withFont: AppFont.semiBold.size(13.0),
             color: .white)
         
-        let addedStarts = String(format: "Added Stars:- \(d)")
+        let addedStarts = String(format: "Added Stars:- \(data?.addedStars ?? "")")
         let attributedAddedStartsString = NSMutableAttributedString(string: addedStarts)
         addedStarsLabel.attributedText = attributedAddedStartsString.highlightedSubstring(
             "Added Stars:- ",
             withFont: AppFont.semiBold.size(13.0),
             color: .white)
         
-        let repoName = String(format: "Repo Name:- \(d)")
+        let repoName = String(format: "Repo Name:- \(data?.repo ?? "")")
         let attributedRepoNameString = NSMutableAttributedString(string: repoName)
         repoNameLabel.attributedText = attributedRepoNameString.highlightedSubstring(
             "Repo Name:- ",
             withFont: AppFont.semiBold.size(13.0),
             color: .white)
         
-        let link = String(format: "Link:- \(d)")
+        let link = String(format: "Link:- \(data?.repoLink ?? "")")
         let attributedLinkString = NSMutableAttributedString(string: link)
         repoLinkLabel.attributedText = attributedLinkString.highlightedSubstring(
             "Link:- ",
             withFont: AppFont.semiBold.size(13.0),
             color: .white)
         
-        let description = String(format: "Description:- \(d)")
+        let description = String(format: "Description:- \(data?.desc ?? "")")
         let attributedDescriptionString = NSMutableAttributedString(string: description)
         repoDescLabel.attributedText = attributedDescriptionString.highlightedSubstring(
             "Description:- ",

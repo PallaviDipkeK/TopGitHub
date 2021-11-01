@@ -27,6 +27,7 @@ class GitRepoListTableView: UITableView {
         delegate = self
         dataSource = self
         showsVerticalScrollIndicator = false
+        allowsSelection = true
         registerCells()
     }
     
@@ -49,6 +50,9 @@ extension GitRepoListTableView: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(for: indexPath) as GitRepoListTableViewCell
         let data = viewModel.model?.items?[indexPath.row]
         cell.configureCell(data: data)
+        cell.viewMoreSelected = {
+            self.didSelectRow?(data)
+        }
         return cell
     }
     

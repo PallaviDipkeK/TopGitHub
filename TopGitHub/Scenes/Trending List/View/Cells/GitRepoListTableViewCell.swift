@@ -21,6 +21,10 @@ class GitRepoListTableViewCell: UITableViewCell, NibReusable {
         // Initialization code
     }
     
+    @IBAction func didSelectCell(_ sender: Any) {
+        viewMoreSelected?()
+    }
+    
     func configureCell(data: GithubRepoListModel.Item?) {
         nameLabel?.text = data?.repo
         repoNameLabel?.text = data?.desc

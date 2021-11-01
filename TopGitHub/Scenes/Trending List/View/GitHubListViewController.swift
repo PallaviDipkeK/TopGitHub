@@ -25,6 +25,7 @@ class GitHubListViewController: BaseViewController, StoryboardSceneBased {
     
     // MARK: - Refresh Controls
     private func createRefreshControl() {
+        activityIndicator.startAnimating()
         refreshControl.createCustomControl { [weak self] in
             self?.viewModel.model = nil
             self?.getReposApiCall()
@@ -57,17 +58,22 @@ class GitHubListViewController: BaseViewController, StoryboardSceneBased {
                 self?.didSelectRow(data: data)
             }
         }
+        createRefreshControl()
     }
     
     func didSelectRow(data: GithubRepoListModel.Item?) {
         let detailVC = RepoDetailViewController.instantiate()
         detailVC.link = data?.repoLink ?? "https://trendings.herokuapp.com/repo"
-        detailVC.setupData(data: data)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            detailVC.setupData(data: data)
+        }
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     private func getReposApiCall() {
-        activityIndicatorBegin()
+        if !activityIndicator.isAnimating {
+            activityIndicatorBegin()
+        }
         viewModel.callListApi(completionHandler: { [weak self] (status, msg)  in
             DispatchQueue.main.async {
                 self?.handleAPiResponse(status, msg: msg ?? "")
@@ -95,7 +101,9 @@ class GitHubListViewController: BaseViewController, StoryboardSceneBased {
     }
     
     fileprivate func handleAPiResponse(_ status: Bool, msg: String) {
-        refreshControl.endRefreshing()
+        if activityIndicator.isAnimating {
+            refreshControl.endRefreshing()
+        }
         activityIndicatorEnd()
         if status {
             repoTableView.reloadData()
